@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOPE Experiment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- -------------------------------------------------------------------------------- -->
+    <!-- ----------------- T O P     B A R-->
+    <!-- -------------------------------------------------------------------------------- -->
+    <div id="TopBar">
+
+        <div class="TopLogos">
+            <img src="logo_ub_2021.png" alt="Logo Universitat Bremen" class="ImgLogo left">
+            <img src="dmls.webp" alt="logo Digital media lab" class="ImgLogo right">
+        </div>
+
+        <div class="TitleBar">
+            <h1>
+                From Powerpoint slides to Video Overlapped Presentation Elements, ways of presenting information in times of
+                online meetings
+            </h1>
+        </div>
+        <div class="SubTitleBar">
+            MSc Digital Media - Universität Bremen
+        </div>
+
+    </div>
+
+
+    <!-- -------------------------------------------------------------------------------- -->
+    <!-- -----------------T E R M S     OF     S E R V I C E-->
+    <!-- -------------------------------------------------------------------------------- -->
+    <div class="Terms" id="Terms">
+
+        <h3 class="subtitle">
+            Terms and Conditions
+        </h3>
+
+
+        <div class="Description">
+            This survey will take approximately 15 minutes. You are asked to answer some questions about seismic
+            engineering
+            and virtual presentations.
+            You will be asked the same questionnaire before and after watching a video presentation. Please be honest
+            with
+            your answers.
+
+        </div>
+
+        <div class="dataCollection">
+            <h3>Data Collection</h3>
+            <div>
+                Your data will be stored and processed anonymously only for the purpose of this study.
+                We do guarantee privacy is completely preserved. However, we do not guarantee any data access by
+                third-party
+                applications.
+                Please refer to the policies of the third-party applications (Google Forms). In accordance with good
+                scientific conduct and aiming to support
+                open science and research practice, the data set may be published online for open and free data access
+                together with any accompanying
+                research report in a fully anonymized manner. This allows other researchers to build on our work.
+            </div>
+        </div>
+
+        <div>
+            <h3>
+                Risk And Benefits
+            </h3>
+
+            <div>
+                There are no risks associated with your participation.
+                We can not offer you any direct benefits from participating in this study; however, you will support
+                scientific research.
+            </div>
+
+        </div>
+        <h3>
+            Participant's Rights
+        </h3>
+
+        <div>
+            If you have read this informed consent and have decided to participate in the survey,
+            please understand your participation is voluntary and you have the right to withdraw your consent or
+            discontinue
+            participation at any time without penalty or loss of benefits to which you are otherwise entitled. If you
+            withdraw from the survey
+            while participating or within 14 days after your participation, all existing data which we collect from your
+            participation will be deleted.
+            If you withdraw more than 14 days after your participation, we will still attempt to remove all data
+            collected
+            from you but this may not be
+            possible due to the analysis process. The results of this study may be presented in scientific articles.
+        </div>
+
+
+        <div>
+            <h3>
+                Contacts
+            </h3>
+
+            <div>
+                This survey is under the supervision of Digital Media Lab at University of Bremen (http://dm.tzi.de).
+                If you have any questions, concerns or complaints about this research, please reach out to the following
+                person(s):
+            </div>
+
+            <h4 class="contact">
+                David Montoya Castaño (davmon@uni-bremen.de), MSc in Digital Media
+                Yenchin Lai (ylai@uni-bremen.de), PhD candidate
+            </h4>
+
+        </div>
+
+        <div>
+            <h3>
+                consent
+            </h3>
+
+            <form>
+                <input type="checkbox" id="TermsAcceptance" name="TermsAcceptance" value="TermsAcceptance">
+                <label for="TermsAcceptance"> I confirm that I understand and agree to the terms and conditions
+                    above.</label><br>
+
+                <div id="TermsNotAcceptedDialog" class="hidden">
+                    You need to accept the terms and conditions to continue
+                </div>
+
+                <input type="checkbox" id="AgeChecked" name="AgeChecked" value="AgeChecked">
+                <label for="AgeChecked"> I am Older than 18 years old.</label><br>
+
+                <div id="LegalAgeNotAcceptedDialog" class="hidden">
+                    To follow the General Data Protection Regulation (GDPR), we DO NOT accept consent from
+                    whose age is under 18 years.
+                </div>
+
+            </form>
+            <div class="buttonContainer">
+                <button onclick=CheckTermsAndAge()>Next</button>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+    <!-- -------------------------------------------------------------------------------- -->
+    <!-- -----------------D E M O G R A P H I C S-->
+    <!-- -------------------------------------------------------------------------------- -->
+    <div id="Demographics" class="hidden">
+        <h3 class="subtitle"> Demographics </h3>
+        <form id="Demographics_form">
+
+            <!-- Gender -->
+            <div id="Gender_Container" class="Question_Demographics">
+
+                <label for="Gender">Gender:</label>
+                <select name="Gender" id="Gender" onchange=CheckIfItsOther(this)>
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                </select>
+                <div class="hidden" id="Gender_other">
+                    <label for="Gender_other">Which:</label>
+                    <input type="text" name="Gender_other" id="Gender_other">
+                    <i class="optional_text">(optional)</i>
+                </div>
+                <br><br>
+            </div>
+
+
+            <!-- Age -->
+            <div id="Age_Container" class="Question_Demographics">
+
+                <label for="Age">Age:</label>
+                <select name="Age" id="Age">
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="18-25">18-25</option>
+                    <option value="26-35">26-35</option>
+                    <option value="36-45">36-45</option>
+                    <option value="46-55">46-55</option>
+                    <option value="> 55">>55</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                </select>
+                <br><br>
+            </div>
+
+
+            <!-- Continent -->
+            <div id="Continent_Container" class="Question_Demographics">
+
+                <label for="Continent">Continent:</label>
+                <select name="Continent" id="Continent" onchange=CheckIfItsOther(this)>
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="Europe">Europe</option>
+                    <option value="South America">South America</option>
+                    <option value="North America">North America</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Oceania">Oceania</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Other">Other</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                </select>
+
+                <div class="hidden" id="Continent_other">
+                    <label for="Continent_other">Which:</label>
+                    <input type="text" name="Continent_other" id="Continent_other">
+                    <i class="optional_text">(optional)</i>
+                </div>
+                <br><br>
+            </div>
+
+
+            <!-- Country -->
+            <div id="Country_Container" class="Question_Demographics">
+
+                <label for="Country">Country:</label>
+                <input type="text" name="Country" id="Country">
+                <br><br>
+            </div>
+
+
+            <!-- Education -->
+            <div id="Education_Container" class="Question_Demographics">
+
+                <label for="Education">Level of education:</label>
+                <select name="Education" id="Education" onchange=CheckIfItsOther(this)>
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="No Shcooling completed">No Shcooling completed</option>
+                    <option value="Some High school, no Diploma">Some High school, no Diploma</option>
+                    <option value="High scool graduate">High scool graduate</option>
+                    <option value="Some college credit, no degree">Some college credit, no degree</option>
+                    <option value="Trade/technical/vocational training">Trade/technical/vocational training</option>
+                    <option value="Associate degree">Associate degree</option>
+                    <option value="Associate degree">Associate degree</option>
+                    <option value="Bachelor’s degree">Bachelor’s degree</option>
+                    <option value="Master’s degree">Master’s degree</option>
+                    <option value="Professional degree">Professional degree</option>
+                    <option value="Doctorate degree">Doctorate degree</option>
+                    <option value="Other">Other</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                </select>
+
+                <div class="hidden" id="Education_other">
+                    <label for="Education_other">Which:</label>
+                    <input type="text" name="Education_other" id="Education_other">
+                    <i class="optional_text">(optional)</i>
+                </div>
+
+                <br><br>
+            </div>
+
+
+            <!-- Ethnicity -->
+            <div id="Ethnicity_Container" class="Question_Demographics">
+
+                <label for="Ethnicity">Ethnicity:</label>
+                <select name="Ethnicity" id="Ethnicity" onchange=CheckIfItsOther(this)>
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="Asian or Pacific Islander">Asian or Pacific Islander</option>
+                    <option value="Black or African American">Black or African American</option>
+                    <option value="Hispanic or Latino">Hispanic or Latino</option>
+                    <option value="Native American or Alaskan Native">Native American or Alaskan Native</option>
+                    <option value="White or Caucasian">White or Caucasian</option>
+                    <option value="Multiracial or Biracial">Multiracial or Biracial</option>
+                    <option value="Other">Other</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                </select>
+
+                <div class="hidden" id="Ethnicity_other">
+                    <label for="Ethnicity_other">Which:</label>
+                    <input type="text" name="Ethnicity_other" id="Ethnicity_other">
+                    <i class="optional_text">(optional)</i>
+                </div>
+
+
+                <br><br>
+            </div>
+
+            <!-- Language -->
+            <div id="Language_Container" class="Question_Demographics">
+
+                <label for="Language">Native language:</label>
+                <select name="Language" id="Language" onchange=CheckIfItsOther(this)>
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="English">English</option>
+                    <option value="French">French</option>
+                    <option value="German">German</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Indonesian">Indonesian </option>
+                    <option value="Mandarin Chinese">Mandarin Chinese</option>
+                    <option value="Portuguese">Portuguese</option>
+                    <option value="Russian">Russian</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Urdu">Urdu </option>
+                    <option value="Other">Other</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                </select>
+
+                <div class="hidden" id="Language_other">
+                    <label for="Ethnicity_other">Which:</label>
+                    <input type="text" name="Ethnicity_other" id="Ethnicity_other">
+                    <i class="optional_text">(optional)</i>
+                </div>
+
+                <br><br>
+            </div>
+
+
+
+
+            <!-- Device -->
+            <div id="Device_Container" class="Question_Demographics">
+
+                <label for="Device">Device I'm using:</label>
+                <select name="Device" id="Device" onchange=CheckIfItsOther(this)>
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="Computer">Computer</option>
+                    <option value="Phone">Phone</option>
+                    <option value="Tablet">Tablet</option>
+                    <option value="Other">Other</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                </select>
+
+                <div class="hidden" id="Device_other">
+                    <label for="Device_other">Which:</label>
+                    <input type="text" name="Device_other" id="Device_other">
+                    <i class="optional_text">(optional)</i>
+                </div>
+
+
+                <br><br>
+            </div>
+
+        </form>
+
+        <button onclick=validateDemographicAnswers()>Submit</button>
+        <div id="Demographics_AnswerAllQuestions" class="hidden"> Please anser all the questions </div>
+
+    </div>
+
+
+
+
+    <!-- -------------------------------------------------------------------------------- -->
+    <!-- -----------------P R E     Q U E S T I O N N A I R E-->
+    <!-- -------------------------------------------------------------------------------- -->
+    <div id="PreQuestionnaire" class="hidden">
+        <h3 class="subtitle"> Pre Questionnaire</h3>
+        <span>Please answer the questions with honesty. We are not measuring or judging your knowledge</span>
+
+        <div id="PreQuestions">
+
+        </div>
+        <div class="ButtonContainer">
+            <button id="ButtonPreQuestionnaire" onclick=checkIfAllAnswersAreCompletedPre()> Continue </button>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- -------------------------------------------------------------------------------- -->
+    <!-- -----------------V I D E O S-->
+    <!-- -------------------------------------------------------------------------------- -->
+    <div id="Videos" class="hidden">
+        <h3 class="subtitle"> Presentation</h3>
+        <div id="Video_PPT" class="hidden"> Show the PPT video </div>
+        <div id="Video_AR" class="hidden"> show the AR video </div>
+
+        <div class="ButtonContainer">
+            <button id="ButtonVideos" onclick=FinishVideo()> Continue </button>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- -------------------------------------------------------------------------------- -->
+    <!-- -----------------P O S T     Q U E S T I O N N A I R E-->
+    <!-- -------------------------------------------------------------------------------- -->
+    <div id="PostQuestionnaire" class="hidden">
+        <h3 class="subtitle"> Post Questionnaire</h3>
+        <span>Please answer the questions with honesty. We are not measuring or judging your knowledge</span>
+
+        <div id="PostQuestions">         </div>
+        <div id="EngagementQuestions"></div>
+
+        <div class="ButtonContainer">
+            <button id="ButtonPostQuestionnaire" onclick=CheckAnswersPost()> Continue </button>
+        </div>
+    </div>
+
+
+
+    <!-- -------------------------------------------------------------------------------- -->
+    <!-- ----------------Thanks-->
+    <!-- -------------------------------------------------------------------------------- -->
+    <div id="Thanks" class="hidden">
+        <h3 class="subtitle"> Thanks for participate</h3>
+
+    </div>
+
+
+    <section Scripts>
+        <!-- -------------------------------------------------------------------------------- -->
+        <!-- -----------------S C R I P T S-->
+        <!-- -------------------------------------------------------------------------------- -->
+        <!-- Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-database.js"></script>
+
+        <!-- Other scripts -->
+        <script type="text/javascript" src="questionnaire.js"></script>
+
+
+    </section>
+
+</body>
+
+
+
+</html>

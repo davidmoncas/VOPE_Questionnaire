@@ -1,0 +1,54 @@
+body,html{
+    width: 100%;
+    margin: 0;
+}
+
+
+.hidden{
+    display: none;
+}
+
+.RedBorder{
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.Question_Demographics{
+    width: 50%;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-right: auto;
+    text-align: center;
+    border-radius: 10px;
+    padding-top: 10px;
+}
+
+
+.TitleBar{
+    height: 80px;
+    background-color: #d5e3f3;
+    color:#00326d;
+}
+
+.SubTitleBar{
+    height: 80px;
+    background-color: #00326d;
+    color: white;
+}
+
+.TopLogos{
+    height: 100px;
+    width: 100%;
+}
+
+.ImgLogo{
+    height: 80px;
+}
+
+.right{
+    margin: 0;
+    float: right;
+}
+
+.left{
+    text-align: left;
+}
