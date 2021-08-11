@@ -130,12 +130,12 @@ function validateDemographicAnswers() {
     var allQuestionAnswered = true;
     Answers.forEach(element => {
         if (element.value === "") {
-            element.parentNode.classList.add("RedBorder");
+            element.classList.add("RedBorder");
             allQuestionAnswered = false;
         }
         else {
-            if (element.parentNode.classList.contains("RedBorder"))
-                element.parentNode.classList.remove("RedBorder");
+            if (element.classList.contains("RedBorder"))
+                element.classList.remove("RedBorder");
         }
     });
 
@@ -184,6 +184,7 @@ function CheckIfItsOther(question) {
         if (!ElementToShow.classList.contains("hidden"))
             ElementToShow.classList.add("hidden");
     }
+    if(question.classList.contains("RedBorder")) question.classList.remove("RedBorder");
 }
 
 
@@ -245,53 +246,78 @@ function GenerateQuestionnaireQuestions(containerName, prefix) {
         QuestionTitle.classList.add("question_text");
         parentQuestion.append(QuestionTitle);
 
+        var answersContainer = document.createElement("div");
+        answersContainer.classList.add("questionnaireAnswersContainer");
 
         // false button
+        var optionContainerFalse = document.createElement("div")
+        optionContainerFalse.classList.add("optionContainer");
+
         var buttonFalse = document.createElement("input");
         buttonFalse.type = "radio";
+        buttonFalse.classList.add( "radioButtonChoice");
         buttonFalse.value = "false";
-        buttonFalse.id = "choice-false" + i;
+        buttonFalse.id = prefix + "choice-false" + i;
         buttonFalse.name = prefix + i;
 
         var label_false = document.createElement("label");
-        label_false.for = "choice-false" + i;
+        label_false.setAttribute("for", prefix+ "choice-false" + i) ;
         label_false.innerText = "false";
 
+        optionContainerFalse.append(buttonFalse);
+        optionContainerFalse.append(label_false);
+
         // I Dont Know button
+        var optionContainerIDK = document.createElement("div")
+        optionContainerIDK.classList.add("optionContainer");
+
         var buttonIDontKnow = document.createElement("input");
         buttonIDontKnow.type = "radio";
+        buttonIDontKnow.classList.add( "radioButtonChoice");
         buttonIDontKnow.value = "IDontKnow";
-        buttonIDontKnow.id = "choice-IDontKnow" + i;
+        buttonIDontKnow.id = prefix + "choice-IDontKnow" + i;
         buttonIDontKnow.name = prefix + i;
 
 
         var label_IDontKnow = document.createElement("label");
-        label_IDontKnow.for = "choice-IDontKnow" + i;
+        label_IDontKnow.setAttribute("for", prefix+"choice-IDontKnow" + i) ;
         label_IDontKnow.innerText = "I Dont Know";
 
+        optionContainerIDK.append(buttonIDontKnow);
+        optionContainerIDK.append(label_IDontKnow);
 
         // True
+        var optionContainerTrue = document.createElement("div")
+        optionContainerTrue.classList.add("optionContainer");
+
         var buttonTrue = document.createElement("input");
         buttonTrue.type = "radio";
         buttonTrue.value = "true";
-        buttonTrue.id = "choice-true" + i;
+        buttonTrue.classList.add( "radioButtonChoice");
+        buttonTrue.id = prefix+"choice-true" + i;
         buttonTrue.name = prefix + i;
 
         var label_true = document.createElement("label");
-        label_true.for = "choice-true" + i;
+        label_true.setAttribute("for", prefix+"choice-true" + i) ;
         label_true.innerText = "true";
 
+        optionContainerTrue.append(buttonTrue);
+        optionContainerTrue.append(label_true);
 
-        parentQuestion.append(buttonFalse);
-        parentQuestion.append(label_false);
+        //adding up the elements
 
 
-        parentQuestion.append(buttonIDontKnow);
-        parentQuestion.append(label_IDontKnow);
+        answersContainer.append(optionContainerFalse);
+        answersContainer.append(optionContainerIDK);
+        answersContainer.append(optionContainerTrue);
 
-        parentQuestion.append(buttonTrue);
-        parentQuestion.append(label_true);
 
+        parentQuestion.append(answersContainer);
+
+        var separator = document.createElement("hr");
+        separator.classList.add("separatorQuestionnaire");
+        
+        parentQuestion.append(separator);
 
         divForm.append(parentQuestion);
 

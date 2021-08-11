@@ -1,6 +1,7 @@
 body,html{
     width: 100%;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 
@@ -11,6 +12,161 @@ body,html{
 .RedBorder{
     background-color: rgba(255, 0, 0, 0.2);
 }
+
+
+
+.TitleBar{
+    height: 80px;
+    background-color: #d5e3f3;
+    color:#00326d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SubTitleBar{
+    height: 80px;
+    background-color: #00326d;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.TopLogos{
+    margin-top: 20px;
+    height: 100px;
+    width: 80%;
+    text-align: center;
+}
+
+.imageUni{
+    height: 75px;
+}
+
+.imageTZI{
+    height: 50px;
+}
+
+.right{
+    float: right;
+}
+
+.left{
+    text-align: left;
+}
+
+.ButtonContainer{
+    text-align: center;
+    margin-top:15px ;
+    margin-bottom: 40px;
+}
+
+.title{
+    font-size: 1.5vw;
+    font-family: 'Roboto', sans-serif;
+}
+
+.subtitle{
+    font-size: 1vw;
+    font-family:'Roboto', sans-serif;
+} 
+
+.sectionSubtitle{
+    font-family:'Roboto', sans-serif;
+    font-size: 1.5rem;
+    color:#00326d;
+    font-weight: 900;
+    margin-left: 2rem;
+}
+
+.sectionTitle{
+    font-family:'Roboto', sans-serif;
+    font-size: 2rem;
+    color:#00326d;
+    font-weight: 900;
+    margin-left: 2rem;
+}
+
+.sectionParagraph{
+    font-family:'Roboto', sans-serif;
+    font-size: 0.95rem;
+    line-height: 23px;
+    font-weight: normal;
+    color: rgb(60, 60, 60);
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.contactContainer{
+    background-color:  rgb(213, 227, 243);
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.contact{
+    font-family:'Roboto', sans-serif;
+    font-size: 0.95rem;
+    line-height: 23px;
+    font-weight: normal;
+    color: rgb(60, 60, 60);
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.footer{
+    width: 100%;
+    height: 120px;
+    background-color: #00326d; 
+}
+
+button{
+    background-color: rgb(0, 50, 109);
+    font-family:'Roboto', sans-serif;
+    font-weight: 500;
+    color: white;
+    font-size: 1.5rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    border-style: none;
+}
+
+button:hover{
+    background-color: rgb(12, 37, 66);
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.labelCheckbox{
+    font-family:'Roboto', sans-serif;
+    font-size: 1.2rem;
+    line-height: 23px;
+}
+
+.termsContainer{
+    margin-left: 2rem;
+}
+
+.errorMessage{
+    font-family:'Roboto', sans-serif;
+    font-size: 1rem;
+    color: rgb(128, 23, 23);
+    margin-top: 5px;
+}
+
+
+/*  ------------- D E M O G R A P H I C S  */
+.demographicsForm{
+    width: 50%;
+    background-color:  rgb(213, 227, 243);
+    border-radius: 40px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 5px 5px #bababa;
+}
+
 
 .Question_Demographics{
     width: 50%;
@@ -23,32 +179,57 @@ body,html{
 }
 
 
-.TitleBar{
-    height: 80px;
-    background-color: #d5e3f3;
-    color:#00326d;
+.optionOther{
+    margin-top: 10px;
 }
 
-.SubTitleBar{
-    height: 80px;
-    background-color: #00326d;
-    color: white;
+
+/* --------------- P R E  Q U E S T I O N N A I R E */
+.preQuestionnaireContainer{
+    width: 50%;
+    background-color:  rgb(213, 227, 243);
+    border-radius: 40px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 5px 5px #bababa;
 }
 
-.TopLogos{
-    height: 100px;
+
+.question_text{
+    font-weight: bold;
+    color:rgb(20, 20, 20)
+}
+
+.questionnaireAnswersContainer{
     width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-.ImgLogo{
-    height: 80px;
+.radioButtonChoice{
+    margin-left: 5px;
 }
 
-.right{
-    margin: 0;
-    float: right;
+.optionContainer{
+    display: inline;
+    margin: 1rem 4rem;
 }
 
-.left{
-    text-align: left;
+/*  ------------- G E N E R A L  */
+
+select{
+    border: solid rgb(0, 50, 109) 0.5px;
+    border-radius: 5px; 
+}
+
+input[type=text] {
+    border: solid rgb(0, 50, 109) 0.5px;
+    border-radius: 5px; 
+  }
+
+.separatorQuestionnaire{
+    width: 70%;
+    max-width: 300px;
+    border-top: 1px solid rgb(0, 50, 109);
 }
