@@ -24,7 +24,7 @@
 
         <div class="TopLogos">
             <img src="logo_ub_2021.png" alt="Logo Universitat Bremen" class="ImgLogo left imageUni">
-            <img src="dmls.webp" alt="logo Digital media lab" class="ImgLogo right imageTZI">
+            <img src="TZI-solo_JPEG.jpg" alt="logo Digital media lab" class="ImgLogo right imageTZI">
         </div>
 
         <div class="TitleBar">
@@ -43,7 +43,7 @@
     <!-- -------------------------------------------------------------------------------- -->
     <!-- -----------------T E R M S     OF     S E R V I C E-->
     <!-- -------------------------------------------------------------------------------- -->
-    <div class="Terms hidden" id="Terms">
+    <div class="Terms" id="Terms">
 
         <h3 class="sectionTitle">
             Terms and Conditions
@@ -184,7 +184,7 @@
             <div id="Gender_Container" class="Question_Demographics">
 
                 <label for="Gender">Gender:</label>
-                <select name="Gender" id="Gender" onchange=CheckIfItsOther(this)>
+                <select name="Gender" class="selectDemographics" id="Gender" onchange=CheckIfItsOther(this)>
                     <option value="" selected disabled hidden>Choose here</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -204,7 +204,7 @@
             <div id="Age_Container" class="Question_Demographics">
 
                 <label for="Age">Age:</label>
-                <select name="Age" id="Age" onchange=CheckIfItsOther(this)>
+                <select name="Age" id="Age" class="selectDemographics" onchange=CheckIfItsOther(this)>
                     <option value="" selected disabled hidden>Choose here</option>
                     <option value="18-25">18-25</option>
                     <option value="26-35">26-35</option>
@@ -221,7 +221,7 @@
             <div id="Continent_Container" class="Question_Demographics">
 
                 <label for="Continent">Continent:</label>
-                <select name="Continent" id="Continent" onchange=CheckIfItsOther(this)>
+                <select name="Continent" id="Continent" class="selectDemographics" onchange=CheckIfItsOther(this)>
                     <option value="" selected disabled hidden>Choose here</option>
                     <option value="Europe">Europe</option>
                     <option value="South America">South America</option>
@@ -255,7 +255,7 @@
             <div id="Education_Container" class="Question_Demographics">
 
                 <label for="Education">Level of education:</label>
-                <select name="Education" id="Education" onchange=CheckIfItsOther(this)>
+                <select name="Education" id="Education" class="selectDemographics" onchange=CheckIfItsOther(this)>
                     <option value="" selected disabled hidden>Choose here</option>
                     <option value="No Shcooling completed">No Shcooling completed</option>
                     <option value="Some High school, no Diploma">Some High school, no Diploma</option>
@@ -286,7 +286,7 @@
             <div id="Ethnicity_Container" class="Question_Demographics">
 
                 <label for="Ethnicity">Ethnicity:</label>
-                <select name="Ethnicity" id="Ethnicity" onchange=CheckIfItsOther(this)>
+                <select name="Ethnicity" id="Ethnicity" class="selectDemographics" onchange=CheckIfItsOther(this)>
                     <option value="" selected disabled hidden>Choose here</option>
                     <option value="Asian or Pacific Islander">Asian or Pacific Islander</option>
                     <option value="Black or African American">Black or African American</option>
@@ -312,7 +312,7 @@
             <div id="Language_Container" class="Question_Demographics">
 
                 <label for="Language">Native language:</label>
-                <select name="Language" id="Language" onchange=CheckIfItsOther(this)>
+                <select name="Language" class="selectDemographics" id="Language" onchange=CheckIfItsOther(this)>
                     <option value="" selected disabled hidden>Choose here</option>
                     <option value="Arabic">Arabic</option>
                     <option value="English">English</option>
@@ -345,7 +345,7 @@
             <div id="Device_Container" class="Question_Demographics">
 
                 <label for="Device">Device I'm using:</label>
-                <select name="Device" id="Device" onchange=CheckIfItsOther(this)>
+                <select name="Device" class="selectDemographics" id="Device" onchange=CheckIfItsOther(this)>
                     <option value="" selected disabled hidden>Choose here</option>
                     <option value="Computer">Computer</option>
                     <option value="Phone">Phone</option>
@@ -380,9 +380,9 @@
     <!-- -------------------------------------------------------------------------------- -->
     <!-- -----------------P R E     Q U E S T I O N N A I R E-->
     <!-- -------------------------------------------------------------------------------- -->
-    <div id="PreQuestionnaire" class="hiddenA">
+    <div id="PreQuestionnaire" class="hidden">
         <h3 class="sectionSubtitle"> Pre Questionnaire</h3>
-        <span>Please answer the questions with honesty. We are not measuring or judging your knowledge</span>
+
 
         <div id="PreQuestions" class="preQuestionnaireContainer">
 
@@ -417,11 +417,15 @@
     <!-- -----------------P O S T     Q U E S T I O N N A I R E-->
     <!-- -------------------------------------------------------------------------------- -->
     <div id="PostQuestionnaire" class="hidden">
-        <h3 class="subtitle"> Post Questionnaire</h3>
-        <span>Please answer the questions with honesty. We are not measuring or judging your knowledge</span>
+        <h3 class="sectionSubtitle"> Post Questionnaire</h3>
+        
 
-        <div id="PostQuestions">         </div>
-        <div id="EngagementQuestions"></div>
+        <div  class="preQuestionnaireContainer">
+
+            <div id="PostQuestions">         </div>
+            <div id="EngagementQuestions"></div>
+
+        </div>
 
         <div class="ButtonContainer">
             <button id="ButtonPostQuestionnaire" onclick=CheckAnswersPost()> Continue </button>
@@ -434,7 +438,7 @@
     <!-- ----------------Thanks-->
     <!-- -------------------------------------------------------------------------------- -->
     <div id="Thanks" class="hidden">
-        <h3 class="subtitle"> Thanks for participate</h3>
+        <h3 class="sectionSubtitle"> Thanks for participate</h3>
 
     </div>
 

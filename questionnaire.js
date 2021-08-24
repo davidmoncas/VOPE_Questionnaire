@@ -3,7 +3,7 @@ preQuestionnaireQuestions = [
 
     "Richter magnitude is the most important factor when evaluating a seismic event",
 
-    "Earthquakes often produce cracks on the ground that are very dangerous to the structures.",
+    // "Earthquakes often produce cracks on the ground that are very dangerous to the structures.",
 
     // "Only small buildings suffer from resonance",
 
@@ -95,6 +95,12 @@ function CheckTermsAndAge() {
     if (termsAccepted.checked && olderThan18.checked) {
         document.getElementById("Terms").classList.add("hidden");
         document.getElementById("Demographics").classList.remove("hidden");
+
+        window.scroll({
+            top: 100,
+            behavior: 'smooth'
+        });
+
     }
 
 }
@@ -154,6 +160,11 @@ function validateDemographicAnswers() {
         document.getElementById("Demographics").classList.add("hidden");
         document.getElementById("PreQuestionnaire").classList.remove("hidden");
         AddDemographicsToData(Answers)
+
+        window.scroll({
+            top: 100,
+            behavior: 'smooth'
+        });
     }
 
 }
@@ -180,11 +191,14 @@ function CheckIfItsOther(question) {
         ElementToShow.classList.remove("hidden");
     }
     else {
-        var ElementToShow = document.getElementById(question.id + "_other")
-        if (!ElementToShow.classList.contains("hidden"))
-            ElementToShow.classList.add("hidden");
+        var ElementToShow = document.getElementById(question.id + "_other");
+        if (ElementToShow != null) {
+            if (!ElementToShow.classList.contains("hidden"))
+                ElementToShow.classList.add("hidden");
+
+        }
     }
-    if(question.classList.contains("RedBorder")) question.classList.remove("RedBorder");
+    if (question.classList.contains("RedBorder")) question.classList.remove("RedBorder");
 }
 
 
@@ -204,13 +218,23 @@ function CheckIfItsOther(question) {
 
 function checkIfAllAnswersAreCompletedPre() {
     allCompleted = true;
+    var elementNotAnswered;
     for (var i = 0; i < preQuestionnaireQuestions.length; i++) {
         var questionsAnswers = document.getElementsByName("prequestion_" + i);
 
         if (!questionsAnswers[0].checked && !questionsAnswers[1].checked && !questionsAnswers[2].checked) {
-            //TODO show which answers haven't been answered
-            console.warn("question " + i + " hasn't been responded");
+            var questionContainer = document.getElementById("prequestion_quesition_container_" + i);
+            questionContainer.classList.add("notAnswered");
+
             allCompleted = false;
+            elementNotAnswered = questionContainer;
+        }
+        else {
+            var questionContainer = document.getElementById("prequestion_quesition_container_" + i);
+            if (questionContainer.classList.contains("notAnswered")) {
+
+                questionContainer.classList.remove("notAnswered");
+            }
         }
 
     }
@@ -220,8 +244,15 @@ function checkIfAllAnswersAreCompletedPre() {
         AddPreQuestionnaireToData(answers);
         document.getElementById("PreQuestionnaire").classList.add("hidden");
         document.getElementById("Videos").classList.remove("hidden");
-    }
 
+        window.scroll({
+            top: 100,
+            behavior: 'smooth'
+        });
+    }
+    else {
+        elementNotAnswered.scrollIntoView();
+    }
 
     return allCompleted;
 }
@@ -239,7 +270,7 @@ function GenerateQuestionnaireQuestions(containerName, prefix) {
 
         var parentQuestion = document.createElement("div");  //container for each question
         parentQuestion.classList.add("question");
-        parentQuestion.id = "quesition_container_" + i;
+        parentQuestion.id = prefix + "quesition_container_" + i;
 
         var QuestionTitle = document.createElement("h3");
         QuestionTitle.innerText = preQuestionnaireQuestions[i];
@@ -255,13 +286,13 @@ function GenerateQuestionnaireQuestions(containerName, prefix) {
 
         var buttonFalse = document.createElement("input");
         buttonFalse.type = "radio";
-        buttonFalse.classList.add( "radioButtonChoice");
+        buttonFalse.classList.add("radioButtonChoice");
         buttonFalse.value = "false";
         buttonFalse.id = prefix + "choice-false" + i;
         buttonFalse.name = prefix + i;
 
         var label_false = document.createElement("label");
-        label_false.setAttribute("for", prefix+ "choice-false" + i) ;
+        label_false.setAttribute("for", prefix + "choice-false" + i);
         label_false.innerText = "false";
 
         optionContainerFalse.append(buttonFalse);
@@ -273,14 +304,14 @@ function GenerateQuestionnaireQuestions(containerName, prefix) {
 
         var buttonIDontKnow = document.createElement("input");
         buttonIDontKnow.type = "radio";
-        buttonIDontKnow.classList.add( "radioButtonChoice");
+        buttonIDontKnow.classList.add("radioButtonChoice");
         buttonIDontKnow.value = "IDontKnow";
         buttonIDontKnow.id = prefix + "choice-IDontKnow" + i;
         buttonIDontKnow.name = prefix + i;
 
 
         var label_IDontKnow = document.createElement("label");
-        label_IDontKnow.setAttribute("for", prefix+"choice-IDontKnow" + i) ;
+        label_IDontKnow.setAttribute("for", prefix + "choice-IDontKnow" + i);
         label_IDontKnow.innerText = "I Dont Know";
 
         optionContainerIDK.append(buttonIDontKnow);
@@ -293,12 +324,12 @@ function GenerateQuestionnaireQuestions(containerName, prefix) {
         var buttonTrue = document.createElement("input");
         buttonTrue.type = "radio";
         buttonTrue.value = "true";
-        buttonTrue.classList.add( "radioButtonChoice");
-        buttonTrue.id = prefix+"choice-true" + i;
+        buttonTrue.classList.add("radioButtonChoice");
+        buttonTrue.id = prefix + "choice-true" + i;
         buttonTrue.name = prefix + i;
 
         var label_true = document.createElement("label");
-        label_true.setAttribute("for", prefix+"choice-true" + i) ;
+        label_true.setAttribute("for", prefix + "choice-true" + i);
         label_true.innerText = "true";
 
         optionContainerTrue.append(buttonTrue);
@@ -316,7 +347,7 @@ function GenerateQuestionnaireQuestions(containerName, prefix) {
 
         var separator = document.createElement("hr");
         separator.classList.add("separatorQuestionnaire");
-        
+
         parentQuestion.append(separator);
 
         divForm.append(parentQuestion);
@@ -366,14 +397,31 @@ function FinishVideo() {
 
 function CheckAnswersPost() {
     allCompleted = true;
+    var scrollCoord;
     for (var i = 0; i < preQuestionnaireQuestions.length; i++) {
         var questionsAnswers = document.getElementsByName("postquestion_" + i);
 
         if (!questionsAnswers[0].checked && !questionsAnswers[1].checked && !questionsAnswers[2].checked) {
-            //TODO show which answers haven't been answered
+
+            var questionContainer = document.getElementById("postquestion_quesition_container_" + i);
+            console.log(questionContainer);
+            questionContainer.classList.add("notAnswered");
+
             console.warn("question " + i + " hasn't been responded");
             allCompleted = false;
+            scrollCoord = questionContainer;
+
+
         }
+        else {
+            var questionContainer = document.getElementById("postquestion_quesition_container_" + i);
+            if (questionContainer.classList.contains("notAnswered")) {
+                questionContainer.classList.remove("notAnswered");
+
+            }
+        }
+
+
     }
 
     if (allCompleted) {
@@ -391,7 +439,13 @@ function CheckAnswersPost() {
         SendDataToDataBase(Data)
 
 
+
         return allCompleted;
+
+
+    }
+    else {
+        scrollCoord.scrollIntoView();
     }
 }
 
@@ -441,26 +495,44 @@ function GenerateEngagementQuestions(containerName) {
         var sliderContainer = document.createElement("div");
         sliderContainer.classList.add("SliderContainer");
 
+        // labels
+        var labelsContainer = document.createElement("div");
+        labelsContainer.classList.add("EngagementLabelsContainer");
+
+
         var span1 = document.createElement("span");
         span1.classList.add("SliderLabel")
-        span1.innerText="disagree"
+        span1.classList.add("floatLeft")
+        span1.innerText = "disagree"
 
         var span2 = document.createElement("span");
-        span2.innerText="agree"
         span2.classList.add("SliderLabel")
+        span2.classList.add("floatRight")
+        span2.innerText = "agree"
 
         var sliderQuestion = document.createElement("input");
         sliderQuestion.id = "engagementQuestion_" + i;
-        sliderQuestion.type="range";
-        sliderQuestion.min="0";
+        sliderQuestion.type = "range";
+        sliderQuestion.min = "0";
         sliderQuestion.max = "6";
         sliderQuestion.value = "3";
 
-        sliderContainer.append(span1);
+        labelsContainer.append(span1);
+        labelsContainer.append(span2);
+
+        sliderQuestion.classList.add("sliderQuestion");
+
         sliderContainer.append(sliderQuestion);
-        sliderContainer.append(span2);
+        sliderContainer.append(labelsContainer);
 
         parentQuestion.append(sliderContainer);
+
+        var separator = document.createElement("hr");
+        separator.classList.add("separatorQuestionnaire");
+
+        parentQuestion.append(separator);
+
+
 
         divForm.append(parentQuestion);
 
@@ -518,7 +590,7 @@ function GetTypeOfPresentation() {
         }
 
         else {
-            if (number_AR > number_PPT) typeOfPresentation = AR;
+            if (number_AR < number_PPT) typeOfPresentation = AR;
             else typeOfPresentation = PPT;
 
         }
@@ -553,13 +625,28 @@ function GetQuestionnaireAnswers(prefix) {
 }
 
 
-function SendDataToDataBase(data){
+function SendDataToDataBase(data) {
     console.log(data);
+    AddSurvey();
     firebase.database().ref('Questionnaires/').push().set({
         Data: data
     })
 }
 
+function AddSurvey() {
+
+    var presentationName;
+    if (typeOfPresentation == AR) presentationName = "AR";
+    else presentationName = "PPT";
+
+    firebase.database().ref('VideosWatched/' + presentationName).once('value', function (snapshot) {
+        val = snapshot.val();
+        val ++;
+        firebase.database().ref('VideosWatched/' + presentationName).set(val)
+    })
+
+
+}
 
 //#endregion
 
