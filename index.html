@@ -400,10 +400,23 @@
     <!-- -----------------V I D E O S-->
     <!-- -------------------------------------------------------------------------------- -->
     <div id="Videos" class="hidden">
-        <h3 class="subtitle"> Presentation</h3>
-        <div id="Video_PPT" class="hidden"> Show the PPT video </div>
-        <div id="Video_AR" class="hidden"> show the AR video </div>
-
+        <h3 class="sectionSubtitle"> Presentation</h3>
+        <div class="textDescription">
+            Please watch the following video carefully from start to finish. It is important that you pay attention and don't skip it.
+            <br>
+            <br>
+            Click on the Continue button once the video is over.
+            <br>
+            <br>
+        </div>
+        <div class="videoContainer">
+            <div id="Video_PPT" class="hidden"> 
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xlvKKsrZBQs?controls=0" title="YouTube video player" frameborder="0" allow="autoplay; clipboard-write; encrypted-media;  picture-in-picture" allowfullscreen></iframe>    
+            </div>
+            <div id="Video_AR" class="hidden"> 
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/O9iZ4JqFKK0" title="YouTube video player" frameborder="0" allow="autoplay; clipboard-write; encrypted-media;  picture-in-picture" allowfullscreen></iframe>    
+            </div>
+        </div>
         <div class="ButtonContainer">
             <button id="ButtonVideos" onclick=FinishVideo()> Continue </button>
         </div>
