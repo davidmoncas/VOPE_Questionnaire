@@ -1,23 +1,27 @@
 preQuestionnaireQuestions = [
+    "Buildings vibrate and move with earthquakes.",
+    
+    "Tall buildings generally have longer and wider periods than shorter buildings.",
+
+    //"Richter magnitude is the most important factor when evaluating a seismic event",
+
     "Richter scale is linear, A 8-points eartquake in the richter scale is almost twice as powerful as a 4-points earthquake.",
 
-    "Richter magnitude is the most important factor when evaluating a seismic event",
 
     // "Earthquakes often produce cracks on the ground that are very dangerous to the structures.",
 
-    // "Only small buildings suffer from resonance",
+    "Only small buildings suffer from resonance",
 
-    // "Seismic events can happen at any point of the planet with the same probability",
+    "Seismic events can happen at any point of the planet with the same probability",
 
     // "people, furniture and non structural elements only contribute with the weight and don’t change the structural behaviour of a building.",
 
-    // "The stiffness of a building depends only of its mass",
+    "The stiffness of a building depends solely on its mass",
 
-    // "Buildings should be flexible enough to allow people evacuate the building before the collapse.",
+    "Buildings should be flexible enough to allow people evacuate the building before collapsing.",
 
-    // "Making buildings as stiff as possible should always be the goal.",
+    "Making buildings as stiff as possible should always be the goal.",
 
-    // "Buildings vibrate and move with earthquakes.",
 
     // "Making buildings stiffer is usually more expensive and requires more material.",
 
@@ -25,28 +29,31 @@ preQuestionnaireQuestions = [
 
     // "the natural frequency of a building only depends on its height",
 
-    // "the magnitude of an earthquake is the only important factor to consider.",
+    "The magnitude of an earthquake is the only important factor to consider for designing a seismic resistant building.",
 
-    // "Tall buildings have longer and wider periods than shorter buildings.",
 
-    // "Short buildings always have less risk of collapsing than tall buildings.",
+    "Short buildings always have less risk of collapsing than tall buildings.",
 
-    // "different wavelengths of a seism can affect different buildings in different ways.",
+    "Different wavelengths of a seism can affect different buildings in different ways.",
 
     // "from a anti seismic point of view It’s better to have tall buildings",
 
     // "In general, short buildings are less flexible than tall ones.",
 
-    // "Buildings suffer the bigger forces at the top"
+    "Buildings suffer the bigger shear forces at the top"
 
 ];
 
 EngagementQuestions = [
     "The presentation was understandable",
-    "I liked how the topics were presented",
-    "I felt the presenter knew what he was saying",
     "The presentation was boring",
-    "the presentation had visual elements that helped me understand the topic"
+    "I liked how the topics were presented",
+    "I felt distracted during the presentation",
+    "The topic presented was interesting",
+    "the presentation had visual elements that helped me understand the topic",
+    "I felt the presenter was competent",
+    "This type of presentation is adequate for a virtual meeting (using Zoom, Teams, Skype, etc.)",
+    "The information presented or the overall topic was too technical for me"
 
 ]
 
