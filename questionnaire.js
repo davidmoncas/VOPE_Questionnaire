@@ -5,7 +5,7 @@ preQuestionnaireQuestions = [
 
     //"Richter magnitude is the most important factor when evaluating a seismic event",
 
-    "Richter scale is linear, A 8-points eartquake in the richter scale is almost twice as powerful as a 4-points earthquake.",
+    "Richter scale is linear, A 8-points earthquake in the Richter scale is almost twice as powerful as a 4-points earthquake.",
 
 
     // "Earthquakes often produce cracks on the ground that are very dangerous to the structures.",
@@ -18,7 +18,7 @@ preQuestionnaireQuestions = [
 
     "The stiffness of a building depends solely on its mass",
 
-    "Buildings should be flexible enough to allow people evacuate the building before collapsing.",
+    "Buildings should be flexible enough to allow people to evacuate the building before collapsing.",
 
     "Making buildings as stiff as possible should always be the goal.",
 
@@ -40,20 +40,25 @@ preQuestionnaireQuestions = [
 
     // "In general, short buildings are less flexible than tall ones.",
 
-    "Buildings suffer the bigger shear forces at the top"
+    "Buildings suffer the strongest shear forces at the top"
 
 ];
 
 EngagementQuestions = [
-    "The presentation was understandable",
+
+    "The presentation was interesting",
+    "I stopped paying attention to the presentation at some points",
+    "I felt distracted by the visual element of the presentation",
+
+    "The presentation was fun to watch",
+    "I liked the visual elements of the presentation",
     "The presentation was boring",
-    "I liked how the topics were presented",
-    "I felt distracted during the presentation",
-    "The topic presented was interesting",
-    "the presentation had visual elements that helped me understand the topic",
+
+
+
+    "I understood most of the topics presented",
     "I felt the presenter was competent",
-    "This type of presentation is adequate for a virtual meeting (using Zoom, Teams, Skype, etc.)",
-    "The information presented or the overall topic was too technical for me"
+    "The topics were difficult to understand"
 
 ]
 
@@ -131,14 +136,12 @@ function validateDemographicAnswers() {
 
     var Gender = document.getElementById("Gender");
     var Age = document.getElementById("Age")
-    var Continent = document.getElementById("Continent");
     var Country = document.getElementById("Country");
     var Education = document.getElementById("Education");
-    var Ethnicity = document.getElementById("Ethnicity");
     var Language = document.getElementById("Language");
     var Device = document.getElementById("Device");
 
-    var Answers = [Gender, Age, Continent, Country, Education, Ethnicity, Language, Device];
+    var Answers = [Gender, Age,  Country, Education, Language, Device];
 
     var allQuestionAnswered = true;
     Answers.forEach(element => {
@@ -181,12 +184,10 @@ function AddDemographicsToData(answersData) {
     Data.Demographics = {
         Gender: answersData[0].value,
         Age: answersData[1].value,
-        Continent: answersData[2].value,
-        Country: answersData[3].value,
-        Education: answersData[4].value,
-        Ethnicity: answersData[5].value,
-        Language: answersData[6].value,
-        Device: answersData[7].value
+        Country: answersData[2].value,
+        Education: answersData[3].value,
+        Language: answersData[4].value,
+        Device: answersData[5].value
     }
 }
 
@@ -280,7 +281,7 @@ function GenerateQuestionnaireQuestions(containerName, prefix) {
         parentQuestion.id = prefix + "quesition_container_" + i;
 
         var QuestionTitle = document.createElement("h3");
-        QuestionTitle.innerText = preQuestionnaireQuestions[i];
+        QuestionTitle.innerText =(i+1) + ") " + preQuestionnaireQuestions[i];
         QuestionTitle.classList.add("question_text");
         parentQuestion.append(QuestionTitle);
 
@@ -391,7 +392,28 @@ function sendAllPreAnswers() {
 function FinishVideo() {
     document.getElementById("PostQuestionnaire").classList.remove("hidden");
     document.getElementById("Videos").classList.add("hidden");
+
+    if(typeOfPresentation == AR) stopVideo("Video_AR");
+    else stopVideo("Video_PPT");
+    
+    window.scroll({
+        top: 100,
+        behavior: 'smooth'
+    });
+
 }
+
+
+var stopVideo = function ( videoType ) {
+        
+    var iframe = document.getElementById(videoType).childNodes[1]
+    if ( iframe !== null ) {
+        var iframeSrc = iframe.src;
+        iframe.src = iframeSrc;
+    }
+};
+
+
 
 //#endregion
 
@@ -439,6 +461,9 @@ function CheckAnswersPost() {
         var EngagementQuetionAnswers = GetEngagementAnswers();
         AddEngagementAnswersToData(EngagementQuetionAnswers);
 
+        Data.openQuestion1 = document.getElementById("openQuestion1").value;
+        Data.openQuestion2 = document.getElementById("openQuestion2").value;
+
         document.getElementById("PostQuestionnaire").classList.add("hidden");
         document.getElementById("Thanks").classList.remove("hidden");
 
@@ -482,9 +507,18 @@ function AddEngagementAnswersToData(answers) {
 
 function GenerateEngagementQuestions(containerName) {
 
+
     var QuestionsElement = document.getElementById(containerName);
 
     var divForm = document.createElement("div");    //big container of all questions
+
+    var postQuestionnaireText = document.createElement("h3");
+    postQuestionnaireText.innerHTML = "In the next questions, move the slider to the right or left based on how much you agree/disagree with the given statement"
+    postQuestionnaireText.classList.add("postQuestText");
+
+    divForm.append(postQuestionnaireText);
+
+
 
     for (var i = 0; i < EngagementQuestions.length; i++) {
 
@@ -494,7 +528,7 @@ function GenerateEngagementQuestions(containerName) {
         parentQuestion.id = "engagement_quesition_container_" + i;
 
         var QuestionTitle = document.createElement("h3");
-        QuestionTitle.innerText = EngagementQuestions[i];
+        QuestionTitle.innerText =(i+1) + ") "+ EngagementQuestions[i];
         QuestionTitle.classList.add("question_text");
         parentQuestion.append(QuestionTitle);
 
@@ -545,9 +579,39 @@ function GenerateEngagementQuestions(containerName) {
 
     }
 
-    QuestionsElement.append(divForm);
+    var textBeforeQuestion1 = document.createElement("h3");
+    textBeforeQuestion1.classList.add("question_text");
+    textBeforeQuestion1.innerHTML="(Optional) do you like or dislike this system? why?"
 
+    var openQuestion1 = document.createElement("textarea");
+    openQuestion1.classList.add("openQuestion");
+    openQuestion1.id = "openQuestion1";
+    openQuestion1.rows = "4";
+    openQuestion1.cols = "50";
+
+    var textBeforeQuestion2 = document.createElement("h3");
+    textBeforeQuestion2.classList.add("question_text");
+    textBeforeQuestion2.innerHTML="(Optional) please write down your feedback for this study."
+
+    var openQuestion2 = document.createElement("textarea");
+    openQuestion2.classList.add("openQuestion");
+    openQuestion2.id = "openQuestion2";
+    openQuestion2.rows = "4";
+    openQuestion2.cols = "50";
+
+    var separator = document.createElement("hr");
+    separator.classList.add("separatorQuestionnaire");
+
+
+
+    QuestionsElement.append(divForm);
+    QuestionsElement.append(textBeforeQuestion1);
+    QuestionsElement.append(openQuestion1);
+    QuestionsElement.append(separator);
+    QuestionsElement.append(textBeforeQuestion2);
+    QuestionsElement.append(openQuestion2);
 }
+
 
 
 

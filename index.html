@@ -115,7 +115,7 @@
 
             <div>
                 <p class="sectionParagraph">
-                    This survey is under the supervision of Digital Media Lab at University of Bremen (http://dm.tzi.de).
+                    This survey is under the supervision of <a href="http://dm.tzi.de" target="_blank">Digital Media Lab</a> at University of Bremen.
                     If you have any questions, concerns or complaints about this research, please reach out to the following
                     person(s):
                 </p>
@@ -149,7 +149,7 @@
                 <br>
 
                 <input type="checkbox" id="AgeChecked" name="AgeChecked" value="AgeChecked" class="checkboxTerms">
-                <label for="AgeChecked" class="labelCheckbox"> I am Older than 18 years old.</label><br>
+                <label for="AgeChecked" class="labelCheckbox"> I am older than 18 years old.</label><br>
 
                 <div id="LegalAgeNotAcceptedDialog" class="hidden errorMessage">
                     To follow the General Data Protection Regulation (GDPR), we DO NOT accept consent from
@@ -217,35 +217,11 @@
             </div>
 
 
-            <!-- Continent -->
-            <div id="Continent_Container" class="Question_Demographics">
-
-                <label for="Continent">Continent:</label>
-                <select name="Continent" id="Continent" class="selectDemographics" onchange=CheckIfItsOther(this)>
-                    <option value="" selected disabled hidden>Choose here</option>
-                    <option value="Europe">Europe</option>
-                    <option value="South America">South America</option>
-                    <option value="North America">North America</option>
-                    <option value="Asia">Asia</option>
-                    <option value="Oceania">Oceania</option>
-                    <option value="Africa">Africa</option>
-                    <option value="Other">Other</option>
-                    <option value="Prefer not to say">Prefer not to say</option>
-                </select>
-
-                <div class="hidden optionOther" id="Continent_other">
-                    <label for="Continent_other">Which:</label>
-                    <input type="text" name="Continent_other" id="Continent_other">
-                    <i class="optional_text">(optional)</i>
-                </div>
-                <br><br>
-            </div>
-
 
             <!-- Country -->
             <div id="Country_Container" class="Question_Demographics">
 
-                <label for="Country">Country:</label>
+                <label for="Country">Country of residence:</label>
                 <input type="text" name="Country" id="Country">
                 <br><br>
             </div>
@@ -257,12 +233,11 @@
                 <label for="Education">Level of education:</label>
                 <select name="Education" id="Education" class="selectDemographics" onchange=CheckIfItsOther(this)>
                     <option value="" selected disabled hidden>Choose here</option>
-                    <option value="No Shcooling completed">No Shcooling completed</option>
+                    <option value="No Shcooling completed">No Schooling completed</option>
                     <option value="Some High school, no Diploma">Some High school, no Diploma</option>
                     <option value="High scool graduate">High scool graduate</option>
                     <option value="Some college credit, no degree">Some college credit, no degree</option>
                     <option value="Trade/technical/vocational training">Trade/technical/vocational training</option>
-                    <option value="Associate degree">Associate degree</option>
                     <option value="Associate degree">Associate degree</option>
                     <option value="Bachelor’s degree">Bachelor’s degree</option>
                     <option value="Master’s degree">Master’s degree</option>
@@ -282,31 +257,6 @@
             </div>
 
 
-            <!-- Ethnicity -->
-            <div id="Ethnicity_Container" class="Question_Demographics">
-
-                <label for="Ethnicity">Ethnicity:</label>
-                <select name="Ethnicity" id="Ethnicity" class="selectDemographics" onchange=CheckIfItsOther(this)>
-                    <option value="" selected disabled hidden>Choose here</option>
-                    <option value="Asian or Pacific Islander">Asian or Pacific Islander</option>
-                    <option value="Black or African American">Black or African American</option>
-                    <option value="Hispanic or Latino">Hispanic or Latino</option>
-                    <option value="Native American or Alaskan Native">Native American or Alaskan Native</option>
-                    <option value="White or Caucasian">White or Caucasian</option>
-                    <option value="Multiracial or Biracial">Multiracial or Biracial</option>
-                    <option value="Other">Other</option>
-                    <option value="Prefer not to say">Prefer not to say</option>
-                </select>
-
-                <div class="hidden optionOther" id="Ethnicity_other">
-                    <label for="Ethnicity_other">Which:</label>
-                    <input type="text" name="Ethnicity_other" id="Ethnicity_other">
-                    <i class="optional_text">(optional)</i>
-                </div>
-
-
-                <br><br>
-            </div>
 
             <!-- Language -->
             <div id="Language_Container" class="Question_Demographics">
@@ -411,10 +361,10 @@
         </div>
         <div class="videoContainer">
             <div id="Video_PPT" class="hidden"> 
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xlvKKsrZBQs?controls=0" title="YouTube video player" frameborder="0" allow="autoplay; clipboard-write; encrypted-media;  picture-in-picture" allowfullscreen></iframe>    
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QsQgPTLyKEM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div id="Video_AR" class="hidden"> 
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/O9iZ4JqFKK0" title="YouTube video player" frameborder="0" allow="autoplay; clipboard-write; encrypted-media;  picture-in-picture" allowfullscreen></iframe>    
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Dr7X4QSbvZo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
             </div>
         </div>
         <div class="ButtonContainer">
