@@ -463,6 +463,7 @@ function CheckAnswersPost() {
 
         Data.openQuestion1 = document.getElementById("openQuestion1").value;
         Data.openQuestion2 = document.getElementById("openQuestion2").value;
+        Data.PresentationType = typeOfPresentation;
 
         document.getElementById("PostQuestionnaire").classList.add("hidden");
         document.getElementById("Thanks").classList.remove("hidden");

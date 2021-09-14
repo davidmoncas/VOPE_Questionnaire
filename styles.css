@@ -240,7 +240,7 @@ button:hover {
     -webkit-appearance: none;
     width: 90%;
     height: 25px;
-    background: #9ebbdd;
+    background: #00326d;
     outline: none;
     opacity: 0.9;
     -webkit-transition: .2s;
@@ -266,7 +266,7 @@ button:hover {
     width: 25px;
     height: 25px;
     border-radius: 25px;
-    background: #14437a;
+    background: #d50c2f;
    cursor: pointer;
     border:none;
   }
