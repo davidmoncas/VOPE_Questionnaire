@@ -1,7 +1,7 @@
 preQuestionnaireQuestions = [
     "Buildings vibrate and move with earthquakes.",
     
-    "Tall buildings generally have longer and wider periods than shorter buildings.",
+    "Tall buildings generally have longer periods than shorter buildings. (the Period is the time it takes to complete a cycle and return to its initial place)",
 
     //"Richter magnitude is the most important factor when evaluating a seismic event",
 
@@ -18,7 +18,7 @@ preQuestionnaireQuestions = [
 
     "The stiffness of a building depends solely on its mass",
 
-    "Buildings should be flexible enough to allow people to evacuate the building before collapsing.",
+    "one advantage of non-fragile buildings is that allow people to evacuate the building before collapsing",
 
     "Making buildings as stiff as possible should always be the goal.",
 
@@ -40,7 +40,7 @@ preQuestionnaireQuestions = [
 
     // "In general, short buildings are less flexible than tall ones.",
 
-    "Buildings suffer the strongest shear forces at the top"
+    "During earthquakes, buildings suffer the strongest shear forces at the top of the building"
 
 ];
 
@@ -140,8 +140,9 @@ function validateDemographicAnswers() {
     var Education = document.getElementById("Education");
     var Language = document.getElementById("Language");
     var Device = document.getElementById("Device");
+    var SeismicCompetence = document.getElementById("SeismicCompetence");
 
-    var Answers = [Gender, Age,  Country, Education, Language, Device];
+    var Answers = [Gender, Age,  Country, Education, Language, Device , SeismicCompetence];
 
     var allQuestionAnswered = true;
     Answers.forEach(element => {
@@ -187,7 +188,8 @@ function AddDemographicsToData(answersData) {
         Country: answersData[2].value,
         Education: answersData[3].value,
         Language: answersData[4].value,
-        Device: answersData[5].value
+        Device: answersData[5].value,
+        SeismicCompetence: answersData[6].value
     }
 }
 
